@@ -1,9 +1,11 @@
-function AuthLayout({children}: {children: React.ReactNode}) {
+import { Logo } from "./_components/logo";
+function layout({children}: {children:React.ReactNode}) {
     return (
-        <div>
+        <div className="flex flex-col h-full items-center justify-center space-y-6">
+            <Logo/>
             {children}
         </div>
     );
 }
 
-export default AuthLayout;
+export default layout;
