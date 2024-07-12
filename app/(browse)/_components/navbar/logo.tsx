@@ -10,11 +10,11 @@ const font = Poppins({
 export function Logo() {
     return (
         <Link href="/">
-            <div className="hidden lg:flex items-center gap-x-4 hover:opacity-75 transition">
-                <div className="bg-white rounded-full p-1">
+            <div className="flex items-center gap-x-4 hover:opacity-75 transition">
+                <div className="bg-white rounded-full p-1 mr-12 shrink-0 lg:mr-0 lg:shrink">
                     <Image src="/ghost.svg" alt="logo gamehub" height={32} width={32}/>
                 </div>
-                <div className={cn("flex flex-col   justify-center", font.className)}>
+                <div className={cn("hidden lg:flex flex-col   justify-center", font.className)}>
                     <p className="text-lg font-semibold">GameHub</p>
                     <p className="text-sm text-muted-foreground">Let's play!</p>
                 </div>

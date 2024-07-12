@@ -1,0 +1,34 @@
+// "use client"
+import { Button } from "@/components/ui/button";
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
+import { Clapperboard } from "lucide-react";
+import Link from "next/link";
+async function Action() {
+    const user = await currentUser();
+
+    
+    return (
+        <div className="fe=lex items-center justify-end gap-x-2 ml-4 lg:ml-0">
+            {!user && 
+            <SignInButton>
+                <Button size="sm" variant="primary" >
+                    Login
+                </Button>    
+            </SignInButton>}
+            {/* !! để chuyển đổi một giá trị bất kì (null, undefined, số, chuỗi...) thành boolean */}
+            {!!user && 
+            <div className="flex items-center gap-x-4">
+                <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-primary" asChild>
+                    <Link href={`/u/${user.username || user.firstName}`}>
+                    <Clapperboard className="h-5 w-5 lg:mr-2"/>
+                        <span className="hidden lg:block">Dashboard</span>
+                    </Link>    
+                </Button>
+                <UserButton afterSignOutUrl="/"/>
+            </div>} 
+        </div>
+    );
+}
+
+export default Action;

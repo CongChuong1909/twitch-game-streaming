@@ -13,7 +13,7 @@ function Search() {
         if(!value)
             return
         const url = queryString.stringifyUrl({
-            url:'/',
+            url:'/search',
             query:{ term: value}
         }, {skipEmptyString: true})
         route.push(url);
